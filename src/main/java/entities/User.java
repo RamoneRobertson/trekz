@@ -6,8 +6,6 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-
-import java.time.LocalDate;
 import java.util.Date;
 
 @Table(name = "users")
@@ -26,7 +24,7 @@ public class User {
     )
     private String email;
 
-    @Column(length = 50, nullable = false)
+    @Column(length = 100, nullable = false)
     @Size(min = 8, max = 50, message = "Password must be between 8 and 50 characters")
     @Pattern(
             regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$",
@@ -41,7 +39,7 @@ public class User {
     @Column(nullable = false)
     @NotNull(message = "Birthdate is required")
     @Past(message = "Birthdate must be in the past")
-    private LocalDate birthday;
+    private Date birthday;
 
     @CreationTimestamp
     @Column(nullable = false, name = "created_at")
@@ -53,5 +51,51 @@ public class User {
 
     //  Getters and Setters
 
+    // ID
+    public Integer getId(){
+        return id;
+    }
 
+    // email
+    public String getEmail(){
+        return email;
+    }
+
+
+    public void setEmail(String email){
+        this.email = email;
+    }
+
+    // password
+    public void setPassword(String password){
+        this.password = password;
+    }
+
+    // name
+    public String getName(){
+        return name;
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
+
+    //birthdate
+    public Date getBirthday(){
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday){
+        this.birthday = birthday;
+    }
+
+    // created at
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    // updated at
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
 }
