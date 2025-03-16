@@ -1,0 +1,29 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: trekz
+
+#  security:
+#  oauth2:
+#    resourceserver:
+#      jwt:
+#        issuer-uri: http://localhost:8080/realms/trekz-keycloak
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/trekz
+    username: postgres
+    password: READme2025$
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          timezone: UTC
