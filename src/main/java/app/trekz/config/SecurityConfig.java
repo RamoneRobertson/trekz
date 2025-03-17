@@ -1,4 +1,4 @@
-package config;
+package app.trekz.config;
 
 // For Spring
 import org.springframework.context.annotation.Bean;
