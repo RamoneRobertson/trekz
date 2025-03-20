@@ -12,9 +12,9 @@ spring:
 #        issuer-uri: http://localhost:8080/realms/trekz-keycloak
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/trekz
-    username: postgres
-    password: READme2025$
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
 
   jpa:
@@ -27,3 +27,8 @@ spring:
         format_sql: true
         jdbc:
           timezone: UTC
+
+  security:
+    jwt:
+      secret-key: ${JWT_SECRET}
+      expiration-time: ${JWT_EXPIRATION}
